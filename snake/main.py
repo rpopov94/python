@@ -1,6 +1,6 @@
-import pygame
-import sys
 import random
+import sys
+import pygame
 import pygame_menu
 
 pygame.init()
@@ -16,7 +16,7 @@ WHITE = (255, 255, 255)
 BLUE = (204, 255, 255)
 HEADER_COLOR = (0, 204, 153)
 SNAKE_COLOR = (0, 102, 0)
-RED = (224,0,0)
+RED = (224, 0, 0)
 
 size = [SIZE_BLOCK * COUNT_BLOCK + 2 * SIZE_BLOCK + MARGIN * COUNT_BLOCK,
         SIZE_BLOCK * COUNT_BLOCK + 2 * SIZE_BLOCK + MARGIN * SIZE_BLOCK + HEADER_MARGIN]
@@ -31,31 +31,36 @@ class SnakeBlock:
         self.x = x
         self.y = y
 
+    @property
     def is_inside(self):
-        return 0<=self.x<COUNT_BLOCK and 0<self.y<COUNT_BLOCK
+        return 0 <= self.x < COUNT_BLOCK and 0 <= self.y < COUNT_BLOCK
 
     def __eq__(self, other):
         return isinstance(other, SnakeBlock) and self.x == other.x and self.y == other.y
 
+
 def get_random_empty_block():
     x = random.randint(0, COUNT_BLOCK-1)
     y = random.randint(0, COUNT_BLOCK-1)
-    empty_block = SnakeBlock(x,y)
+    empty_block = SnakeBlock(x, y)
     while empty_block in snake_blocks:
-        empty_block.x = random.randint(0, COUNT_BLOCK - 1)
-        empty_block.y = random.randint(0, COUNT_BLOCK - 1)
+        empty_block.x = random.randint(0, COUNT_BLOCK-1)
+        empty_block.y = random.randint(0, COUNT_BLOCK-1)
     return empty_block
+
 
 def draw_block(color, column, row):
     pygame.draw.rect(screen, color, [SIZE_BLOCK + column * SIZE_BLOCK + MARGIN * (column + 1),
                                      HEADER_MARGIN + SIZE_BLOCK + row * SIZE_BLOCK + MARGIN * (row + 1), SIZE_BLOCK,
                                      SIZE_BLOCK])
 
+
 screen = pygame.display.set_mode(size)
 
 snake_blocks = [SnakeBlock(8, 9)]
 apple = get_random_empty_block()
 pygame.display.set_caption('Змейка')
+
 
 def start_the_game():
     global apple
@@ -88,10 +93,10 @@ def start_the_game():
         text_total = courier.render('Total: {}'.format(total), 0, WHITE)
         text_speed = courier.render('Speed: {}'.format(speed), 0, WHITE)
         screen.blit(text_total, (SIZE_BLOCK, SIZE_BLOCK))
-        screen.blit(text_speed, (SIZE_BLOCK+250, SIZE_BLOCK))
+        screen.blit(text_speed, (SIZE_BLOCK + 250, SIZE_BLOCK))
 
-        for row in range(COUNT_BLOCK):
-            for column in range(COUNT_BLOCK):
+        for row in range(20):
+            for column in range(20):
                 if (row + column) % 2 == 0:
                     color = BLUE
                 else:
@@ -99,7 +104,7 @@ def start_the_game():
                 draw_block(color, column, row)
 
         head = snake_blocks[-1]
-        if not head.is_inside():
+        if not head.is_inside:
             print('crash')
             break
 
@@ -111,27 +116,26 @@ def start_the_game():
 
         if apple == head:
             total += 1
-            speed = total//5 + 1
+            speed = total // 5 + 1
             snake_blocks.append(apple)
             apple = get_random_empty_block()
 
         d_row = buf_row
         d_col = buf_col
-        new_head = SnakeBlock(head.x+d_col, head.y + d_row)
+        new_head = SnakeBlock(head.x + d_col, head.y + d_row)
 
         if new_head in snake_blocks:
             print('crash yourself ')
             break
 
-
         snake_blocks.append(new_head)
         snake_blocks.pop(0)
 
-        timer.tick(1+speed)
+        timer.tick(1 + speed)
 
 
 menu = pygame_menu.Menu(250, 350, 'Welcome',
-                       theme=pygame_menu.themes.THEME_GREEN)
+                        theme=pygame_menu.themes.THEME_GREEN)
 
 menu.add_text_input('Name :', default='Player')
 menu.add_button('Play', start_the_game)
@@ -139,7 +143,7 @@ menu.add_button('Quit', pygame_menu.events.EXIT)
 
 while True:
 
-    screen.blit(bg_image,(0,0))
+    screen.blit(bg_image, (0, 0))
 
     events = pygame.event.get()
     for event in events:
