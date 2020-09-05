@@ -8,8 +8,12 @@ window.bgcolor("black")
 border = turtle.Turtle()
 border.color("green")
 
+border.begin_fill()
 border.goto(-250, 150)
 border.goto(250, 150)
 border.goto(250, -150)
 border.goto(-250, -150)
+border.goto(-250, 150)
+border.end_fill()
+
 window.mainloop()
