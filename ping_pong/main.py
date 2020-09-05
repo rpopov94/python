@@ -78,7 +78,7 @@ ball = turtle.Turtle()
 ball.shape('circle')
 ball.color('red')
 ball.dx = 3
-ball.dy = 3
+ball.dy = -3
 ball.penup()
 
 
@@ -91,5 +91,15 @@ window.onkeypress(move_down_b, 'd')
 while True:
     ball.setx(ball.xcor()+ball.dx)
     ball.sety(ball.ycor()+ball.dy)
+
+    if ball.ycor() >= 140:
+        ball.dy = -ball.dy
+    if ball.ycor() <= -140:
+        ball.dy = -ball.dy
+    if ball.xcor() >= 240:
+        ball.dx = -ball.dx
+    if ball.xcor() <= -240:
+        ball.dx = -ball.dx
+
 
 window.mainloop()
