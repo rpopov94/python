@@ -46,29 +46,37 @@ rocket_b.goto(230, 0)
 
 
 def move_up_a():
-    y = rocket_a.ycor()
-    rocket_a.sety(y + 5)
+    y = rocket_a.ycor() + 10
+    if y > 150:
+        y = 150
+    rocket_a.sety(y)
 
 
 def move_down_a():
-    y = rocket_a.ycor()
-    rocket_a.sety(y - 5)
+    y = rocket_a.ycor() - 10
+    if y < -150:
+        y = -150
+    rocket_a.sety(y)
+
 
 def move_up_b():
-    y = rocket_b.ycor()
-    rocket_b.sety(y + 5)
+    y = rocket_b.ycor() + 10
+    if y > 150:
+        y = 150
+    rocket_b.sety(y)
 
 
 def move_down_b():
-    y = rocket_b.ycor()
-    rocket_b.sety(y - 5)
+    y = rocket_b.ycor() - 10
+    if y < -150:
+        y = -150
+    rocket_b.sety(y)
+
 
 window.listen()
 window.onkeypress(move_up_a, 'w')
 window.onkeypress(move_down_a, 's')
 window.onkeypress(move_up_b, 'e')
 window.onkeypress(move_down_b, 'd')
-
-
 
 window.mainloop()
