@@ -16,4 +16,6 @@ border.goto(-250, -150)
 border.goto(-250, 150)
 border.end_fill()
 
+border.goto(0, 300)
+
 window.mainloop()
