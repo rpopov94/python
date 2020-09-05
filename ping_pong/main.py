@@ -17,8 +17,14 @@ border.goto(-250, -150)
 border.goto(-250, 150)
 border.end_fill()
 
-border.goto(0, 300)
+border.goto(0, 150)
 border.color('white')
-border.goto(0, -300)
+for i in range(12):
+    if i%2 == 0:
+        border.forward(12)
+    else:
+        border.up()
+        border.forward(12)
+        border.down()
 
 window.mainloop()
