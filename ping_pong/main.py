@@ -45,18 +45,30 @@ rocket_b.penup()
 rocket_b.goto(230, 0)
 
 
-def move_up():
+def move_up_a():
     y = rocket_a.ycor()
     rocket_a.sety(y + 5)
 
 
-def move_down():
+def move_down_a():
     y = rocket_a.ycor()
     rocket_a.sety(y - 5)
 
+def move_up_b():
+    y = rocket_b.ycor()
+    rocket_b.sety(y + 5)
+
+
+def move_down_b():
+    y = rocket_b.ycor()
+    rocket_b.sety(y - 5)
 
 window.listen()
-window.onkeypress(move_up, 'w')
-window.onkeypress(move_down, 's')
+window.onkeypress(move_up_a, 'w')
+window.onkeypress(move_down_a, 's')
+window.onkeypress(move_up_b, 'e')
+window.onkeypress(move_down_b, 'd')
+
+
 
 window.mainloop()
