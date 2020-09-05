@@ -30,4 +30,18 @@ for i in range(25):
 
 border.hideturtle()
 
+rocket_a = turtle.Turtle()
+rocket_a.color('white')
+rocket_a.shape('square')
+rocket_a.shapesize(stretch_wid=5, stretch_len=1)
+rocket_a.penup()
+rocket_a.goto(-230, 0)
+
+rocket_b = turtle.Turtle()
+rocket_b.color('white')
+rocket_b.shape('square')
+rocket_b.shapesize(stretch_wid=5, stretch_len=1)
+rocket_b.penup()
+rocket_b.goto(230, 0)
+
 window.mainloop()
