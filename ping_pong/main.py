@@ -6,7 +6,7 @@ window.setup(width=0.5, height=0.5)
 window.bgcolor("black")
 
 border = turtle.Turtle()
-border.speed(5)
+border.speed(0)
 border.color("green")
 
 border.begin_fill()
@@ -19,12 +19,15 @@ border.end_fill()
 
 border.goto(0, 150)
 border.color('white')
-for i in range(12):
+border.setheading(270)
+for i in range(25):
     if i%2 == 0:
         border.forward(12)
     else:
         border.up()
         border.forward(12)
         border.down()
+
+border.hideturtle()
 
 window.mainloop()
