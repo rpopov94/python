@@ -21,7 +21,7 @@ border.goto(0, 150)
 border.color('white')
 border.setheading(270)
 for i in range(25):
-    if i%2 == 0:
+    if i % 2 == 0:
         border.forward(12)
     else:
         border.up()
@@ -43,5 +43,20 @@ rocket_b.shape('square')
 rocket_b.shapesize(stretch_wid=5, stretch_len=1)
 rocket_b.penup()
 rocket_b.goto(230, 0)
+
+
+def move_up():
+    y = rocket_a.ycor()
+    rocket_a.sety(y + 5)
+
+
+def move_down():
+    y = rocket_a.ycor()
+    rocket_a.sety(y - 5)
+
+
+window.listen()
+window.onkeypress(move_up, 'w')
+window.onkeypress(move_down, 's')
 
 window.mainloop()
