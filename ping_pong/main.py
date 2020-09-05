@@ -1,4 +1,5 @@
 import turtle
+from turtle import Turtle
 
 window = turtle.Screen()
 window.title("Ping-Pong")
@@ -78,6 +79,7 @@ ball.shape('circle')
 ball.color('red')
 ball.dx = 3
 ball.dy = 3
+ball.penup()
 
 
 window.listen()
@@ -85,5 +87,9 @@ window.onkeypress(move_up_a, 'w')
 window.onkeypress(move_down_a, 's')
 window.onkeypress(move_up_b, 'e')
 window.onkeypress(move_down_b, 'd')
+
+while True:
+    ball.setx(ball.xcor()+ball.dx)
+    ball.sety(ball.ycor()+ball.dy)
 
 window.mainloop()
