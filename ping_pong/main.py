@@ -47,30 +47,37 @@ rocket_b.goto(230, 0)
 
 def move_up_a():
     y = rocket_a.ycor() + 10
-    if y > 150:
-        y = 150
+    if y > 100:
+        y = 100
     rocket_a.sety(y)
 
 
 def move_down_a():
     y = rocket_a.ycor() - 10
-    if y < -150:
-        y = -150
+    if y < -100:
+        y = -100
     rocket_a.sety(y)
 
 
 def move_up_b():
     y = rocket_b.ycor() + 10
-    if y > 150:
-        y = 150
+    if y > 100:
+        y = 100
     rocket_b.sety(y)
 
 
 def move_down_b():
     y = rocket_b.ycor() - 10
-    if y < -150:
-        y = -150
+    if y < -100:
+        y = -100
     rocket_b.sety(y)
+
+
+ball = turtle.Turtle()
+ball.shape('circle')
+ball.color('red')
+ball.dx = 3
+ball.dy = 3
 
 
 window.listen()
