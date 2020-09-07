@@ -1,5 +1,5 @@
 import turtle
-from turtle import Turtle
+from random import choice
 
 window = turtle.Screen()
 window.title("Ping-Pong")
@@ -82,7 +82,6 @@ ball.dx = 3
 ball.dy = -3
 ball.penup()
 
-
 window.listen()
 window.onkeypress(move_up_a, 'w')
 window.onkeypress(move_down_a, 's')
@@ -91,8 +90,8 @@ window.onkeypress(move_down_b, 'd')
 
 while True:
     window.update()
-    ball.setx(ball.xcor()+ball.dx)
-    ball.sety(ball.ycor()+ball.dy)
+    ball.setx(ball.xcor() + ball.dx)
+    ball.sety(ball.ycor() + ball.dy)
 
     if ball.ycor() >= 140:
         ball.dy = -ball.dy
@@ -102,8 +101,13 @@ while True:
         ball.dx = -ball.dx
     if ball.xcor() <= -240:
         ball.dx = -ball.dx
-    if ball.xcor()>=240 or ball.xcor() <= -240:
-        ball.goto(0,0)
-
+    if ball.xcor() >= 240:
+        ball.goto(0, 0)
+        ball.dx = choice([-4,-3,-2, 2, 3, 4])
+        ball.dy = choice([-4,-3,-2, 2, 3, 4])
+    if ball.xcor() <= -240:
+        ball.goto(0, 0)
+        ball.dx = choice([-4,-3,-2, 2, 3, 4])
+        ball.dy = choice([-4,-3,-2, 2, 3, 4])
 
 window.mainloop()
