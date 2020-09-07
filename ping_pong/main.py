@@ -89,6 +89,7 @@ window.onkeypress(move_up_b, 'e')
 window.onkeypress(move_down_b, 'd')
 
 while True:
+    window.update()
     ball.setx(ball.xcor()+ball.dx)
     ball.sety(ball.ycor()+ball.dy)
 
@@ -96,10 +97,12 @@ while True:
         ball.dy = -ball.dy
     if ball.ycor() <= -140:
         ball.dy = -ball.dy
-    if ball.xcor() >= 240:
-        ball.dx = -ball.dx
-    if ball.xcor() <= -240:
-        ball.dx = -ball.dx
+    # if ball.xcor() >= 240:
+    #     ball.dx = -ball.dx
+    # if ball.xcor() <= -240:
+    #     ball.dx = -ball.dx
+    if ball.xcor()>=240:
+        ball.goto(0,0)
 
 
 window.mainloop()
