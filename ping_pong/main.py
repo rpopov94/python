@@ -77,6 +77,7 @@ def move_down_b():
 ball = turtle.Turtle()
 ball.shape('circle')
 ball.color('red')
+ball.speed(0)
 ball.dx = 3
 ball.dy = -3
 ball.penup()
@@ -97,11 +98,11 @@ while True:
         ball.dy = -ball.dy
     if ball.ycor() <= -140:
         ball.dy = -ball.dy
-    # if ball.xcor() >= 240:
-    #     ball.dx = -ball.dx
-    # if ball.xcor() <= -240:
-    #     ball.dx = -ball.dx
-    if ball.xcor()>=240:
+    if ball.xcor() >= 240:
+        ball.dx = -ball.dx
+    if ball.xcor() <= -240:
+        ball.dx = -ball.dx
+    if ball.xcor()>=240 or ball.xcor() <= -240:
         ball.goto(0,0)
 
 
