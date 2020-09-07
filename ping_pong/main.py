@@ -1,5 +1,5 @@
 import turtle
-from random import choice
+from random import choice, randint
 
 window = turtle.Screen()
 window.title("Ping-Pong")
@@ -45,6 +45,8 @@ rocket_b.shapesize(stretch_wid=5, stretch_len=1)
 rocket_b.penup()
 rocket_b.goto(230, 0)
 
+score_a = 0
+score_b = 0
 
 def move_up_a():
     y = rocket_a.ycor() + 10
@@ -102,10 +104,12 @@ while True:
     if ball.xcor() <= -240:
         ball.dx = -ball.dx
     if ball.xcor() >= 240:
+        score_b +=1
         ball.goto(0, 0)
         ball.dx = choice([-4,-3,-2, 2, 3, 4])
         ball.dy = choice([-4,-3,-2, 2, 3, 4])
     if ball.xcor() <= -240:
+        score_a += 1
         ball.goto(0, 0)
         ball.dx = choice([-4,-3,-2, 2, 3, 4])
         ball.dy = choice([-4,-3,-2, 2, 3, 4])
