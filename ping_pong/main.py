@@ -1,5 +1,5 @@
 import turtle
-from turtle import Turtle
+from random import choice, randint
 
 window = turtle.Screen()
 window.title("Ping-Pong")
@@ -46,6 +46,22 @@ rocket_b.penup()
 rocket_b.goto(230, 0)
 
 
+score_a = 0
+score_b = 0
+
+FONT = ("Arial",44)
+s1 = turtle.Turtle(visible=False)
+s1.color('white')
+s1.penup()
+s1.setposition(-100,200)
+s1.write(score_a, font=FONT)
+
+s2 = turtle.Turtle(visible=False)
+s2.color('white')
+s2.penup()
+s2.setposition(100,200)
+s2.write(score_b, font=FONT)
+
 def move_up_a():
     y = rocket_a.ycor() + 10
     if y > 100:
@@ -77,10 +93,10 @@ def move_down_b():
 ball = turtle.Turtle()
 ball.shape('circle')
 ball.color('red')
+ball.speed(0)
 ball.dx = 3
 ball.dy = -3
 ball.penup()
-
 
 window.listen()
 window.onkeypress(move_up_a, 'w')
@@ -89,8 +105,9 @@ window.onkeypress(move_up_b, 'e')
 window.onkeypress(move_down_b, 'd')
 
 while True:
-    ball.setx(ball.xcor()+ball.dx)
-    ball.sety(ball.ycor()+ball.dy)
+    window.update()
+    ball.setx(ball.xcor() + ball.dx)
+    ball.sety(ball.ycor() + ball.dy)
 
     if ball.ycor() >= 140:
         ball.dy = -ball.dy
@@ -100,6 +117,19 @@ while True:
         ball.dx = -ball.dx
     if ball.xcor() <= -240:
         ball.dx = -ball.dx
-
+    if ball.xcor() >= 240:
+        score_b += 1
+        s2.clear()
+        s2.write(score_b, font=FONT)
+        ball.goto(0, 0)
+        ball.dx = choice([-4, -3, -2, 2, 3, 4])
+        ball.dy = choice([-4, -3, -2, 2, 3, 4])
+    if ball.xcor() <= -240:
+        score_a += 1
+        s1.clear()
+        s1.write(score_a, font=FONT)
+        ball.goto(0, 0)
+        ball.dx = choice([-4, -3, -2, 2, 3, 4])
+        ball.dy = choice([-4, -3, -2, 2, 3, 4])
 
 window.mainloop()
