@@ -9,7 +9,8 @@ class MyWin(QtWidgets.QMainWindow):
         self.ui.setupUi(self)
 
 # logic
-        self.ui.
+        self.ui.solutio_clc.clicked.connect(self.result)
+
 
 if __name__=="main":
     app = QtWidgets.QApplacation(sys.argv)
