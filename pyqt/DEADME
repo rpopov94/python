@@ -1,3 +1,0 @@
-Конвертация файла .ui в файл .py при помощи pyuic5
-
-$ pyuic5 <name>.ui -o <name>.py
