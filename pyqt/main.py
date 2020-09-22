@@ -11,10 +11,18 @@ class MyWin(QtWidgets.QMainWindow):
 # logic
         self.ui.solutio_clc.clicked.connect(self.result)
     def result(self):
-        n1 = self.ui.number.text()
-        n2 = int(self.ui.degree.text())
-        s = int(n1, n2)
-        self.ui.lblSum.setText(str(s))
+        try:
+            n1 = self.ui.number.text()
+            n2 = int(self.ui.degree.text())
+            s = int(n1, n2)
+            self.ui.lblSum.setText(str(s))
+        except:
+            msg = QtWidgets.QMessageBox()
+            msg.setWindowTititle("Input error")
+            msg.setText("Input corret data!")
+            msg.SetIcon(msg.Warning)
+            msg.exec()
+
 
 if __name__=="main":
     app = QtWidgets.QApplacation(sys.argv)
