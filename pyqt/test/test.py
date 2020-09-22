@@ -66,6 +66,32 @@ class CBR_API(QWidget):
         # Фиксируем список.
         self.year_combo.move(140, 200)
 
+        def load_result_image(self):
+            # Настройки шрифта текста.
+            font = QFont()
+            font.setFamily("Arial")
+            font.setPointSize(18)
+
+            # Загружаем иконку доллара.
+            dollar_label = QLabel(self)
+            dollar_label.setPixmap(QPixmap("img/dollar.png"))
+            dollar_label.move(60, 260)
+
+            # Текст с выводом курса доллара.
+            self.dollar_value = QLabel("0 руб.", self)
+            self.dollar_value.setFont(font)
+            self.dollar_value.move(130, 263)
+
+            # Загружаем иконку евро.
+            euro_label = QLabel(self)
+            euro_label.setPixmap(QPixmap("img/euro.png"))
+            euro_label.move(50, 320)
+
+            # Текст с выводом курса евро.
+            self.euro_value = QLabel("0 руб.", self)
+            self.euro_value.setFont(font)
+            self.euro_value.move(130, 320)
+
     def initUI(self):
         # Загружаем лого нашей программы.
         logo_label = QLabel(self)
