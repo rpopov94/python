@@ -8,6 +8,9 @@ class MyWin(QtWidgets.QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
+# logic
+        self.ui.
+
 if __name__=="main":
     app = QtWidgets.QApplacation(sys.argv)
     myapp = MyWin()
