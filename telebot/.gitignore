@@ -96,7 +96,7 @@ fabric.properties
 
 #const
 
-const.py
+config.py
 
 # Sonarlint plugin
 # https://plugins.jetbrains.com/plugin/7973-sonarlint
