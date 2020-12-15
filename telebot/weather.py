@@ -62,3 +62,11 @@ def forecast(location):
            f"{date_list[2]}\nAverage temp {temp_list[2]}\n" \
            f"State {state_list[2]}"
 
+
+def smart_function(location, fore=None, hist=None, period=None):
+    if fore is None and hist is None:
+        return current_weather(location)
+    elif fore == 'forecast' and hist is None:
+        return forecast(location)
+    else:
+        return history(location, period)
